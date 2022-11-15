@@ -1,0 +1,60 @@
+#http://pawamoy.github.io/2018/02/01/docker-compose-django-postgres-nginx.html
+
+version: '3'
+services:
+  db: 
+    container_name: db
+    build: .
+    ports:
+      - "5432:5432"
+    networks:
+      - khantonetwork
+  djangoservice:
+    container_name: django
+    build: 
+      context: .
+      dockerfile: django.dockerfile
+    restart: always
+    ports:
+      - 8000:8000
+    volumes:
+      - ../backend/:/srv/djangoproject/
+    depends_on:
+      - db
+    networks:
+    - khantonetwork
+  # angularservice:
+  #   container_name: frontend
+  #   build:
+  #     context: .
+  #     dockerfile: frontend.dockerfile
+  #   restart: always
+  #   ports:
+  #     - 4200:4200
+  #   volumes:
+  #     - PASTA DO FRONTEND
+  #   depends_on:
+  #     - db
+  #     - djangoservice
+  #   networks:
+  #   - khantonetwork
+  nginxservice:
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: nginx.dockerfile
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - db
+      - djangoservice
+      # - angularservice
+    networks:
+      - khantonetwork
+  
+networks:
+  khantonetwork:
+    driver: bridge
+
+
