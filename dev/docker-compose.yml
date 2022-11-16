@@ -25,35 +25,21 @@ services:
       - db
     networks:
     - khantonetwork
-  # angularservice:
-  #   container_name: frontend
+  # Caso seja necessario fazer um proxy reverso, aqui no desafio nao e necessario
+  # nginxservice:
+  #   container_name: nginx
   #   build:
   #     context: .
-  #     dockerfile: frontend.dockerfile
+  #     dockerfile: nginx.dockerfile
   #   restart: always
   #   ports:
-  #     - 4200:4200
-  #   volumes:
-  #     - PASTA DO FRONTEND
+  #     - 80:80
   #   depends_on:
   #     - db
   #     - djangoservice
+  #     # - frontend
   #   networks:
-  #   - khantonetwork
-  nginxservice:
-    container_name: nginx
-    build:
-      context: .
-      dockerfile: nginx.dockerfile
-    restart: always
-    ports:
-      - 80:80
-    depends_on:
-      - db
-      - djangoservice
-      # - angularservice
-    networks:
-      - khantonetwork
+  #     - khantonetwork
   
 networks:
   khantonetwork:
