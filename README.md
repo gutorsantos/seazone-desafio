@@ -77,7 +77,7 @@ DATABASES = {
     }
 }
 ```
-######OBS: o parâmetro HOST, no repostório está como 'db' pois está configurado para o d
+###### OBS: o parâmetro HOST, no repostório está como 'db' pois está configurado para o d
 
 Com a conexão estabelecida, podemos agora fazer as migrações para o banco e carregar alguns dados.
 
