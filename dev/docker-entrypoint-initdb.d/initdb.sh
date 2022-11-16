@@ -14,7 +14,7 @@ psql -v ON_ERROR_STOP=1 --username ${POSTGRES_USER} --dbname ${POSTGRES_DB} <<-E
     ALTER USER ${KHANTO_USER} WITH PASSWORD '${KHANTO_PASS}';
 
     \connect khantodb;
-    CREATE SCHEMA ${KHANTO_SCHEMA} AUTHORIZATION ${KHANTO_PASS};
+    CREATE SCHEMA ${KHANTO_SCHEMA} AUTHORIZATION ${KHANTO_USER};
 
     -- Define a codificação utilizada no tráfego com o cliente
     ALTER ROLE ${KHANTO_USER} SET client_encoding TO 'utf8';
@@ -24,5 +24,7 @@ psql -v ON_ERROR_STOP=1 --username ${POSTGRES_USER} --dbname ${POSTGRES_DB} <<-E
     
     -- Utilizar horário UTC ao invés do horário brasileiro
     ALTER ROLE ${KHANTO_USER} SET timezone TO 'UTC';
+
+    ALTER USER ${KHANTO_USER} CREATEDB;
 EOSQL
 
