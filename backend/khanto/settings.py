@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "rest_framework"
+    "rest_framework",
+    "imoveis.apps.ImoveisConfig",
+    "anuncios.apps.AnunciosConfig",
+    "reservas.apps.ReservasConfig"
 ]
 
 MIDDLEWARE = [
@@ -78,7 +81,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'khantodb',
-        'USER': 'khanto_user',
+        'USER': 'psql',
         'PASSWORD': 'Abcd123*',
         'HOST': 'db',
         'PORT': '5432',
@@ -126,3 +129,4 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+FIXTURE_DIRS = ['fixtures']
