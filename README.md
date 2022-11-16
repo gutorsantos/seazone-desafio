@@ -113,7 +113,29 @@ python manage.py test
 
 ## Modo desenvolvimento - Docker
 
-### 1. Executando a aplicação
+### 1. Configurando o Django
+
+Como o repositório está com parâmetros para a execução do modo normal.
+
+É **necessariamente obrigatório** mudar a configuração da conexão com o banco no settings.py. 
+
+Deve-se alterar **somente** o parâmetro HOST para 'db'.
+
+```py
+# settings.py
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'khantodb',
+        'USER': 'khanto_user',
+        'PASSWORD': 'Abcd123*',
+        'HOST': 'db',
+        'PORT': '5432',
+    }
+}
+```
+
+### 2. Executando a aplicação
 
 Para rodar a aplicação com o docker é bem simples. Primeiramente, iremos ao diretório onde temos os arquivos do Docker
 
@@ -151,7 +173,7 @@ python manage.py runserver
 
 Para verificar que tudo está correto, acesse http://localhost:8000/api/. Deverá aparecer uma lista com os 3 endpoints.
 
-### 2. Testes
+### 3. Testes
 
 Com a aplicação rodando, os teste poderão ser tanto realizados pela interface provida pelo Django RestFramework quanto pelos teste unitários escritos.
 

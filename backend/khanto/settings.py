@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'khantodb',
         'USER': 'psql',
         'PASSWORD': 'Abcd123*',
-        'HOST': 'db',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
