@@ -77,7 +77,7 @@ DATABASES = {
     }
 }
 ```
-###### OBS: o parâmetro HOST, no repostório está como 'db' pois está configurado para o d
+###### OBS: Não é recomendado expor os segredos da aplicação assim. O ideal é colocá-los nas variáveis de ambiente. Porém, como este é um ambiente controlado e que não irá para produção, para fins de praticidade foi feito dessa forma.
 
 Com a conexão estabelecida, podemos agora fazer as migrações para o banco e carregar alguns dados.
 
