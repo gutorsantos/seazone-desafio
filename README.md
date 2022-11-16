@@ -192,5 +192,5 @@ Para rodar os testes unitários, temos que entrar no bash do contêiner e rodar:
 docker exec -it django bash
 
 # Executa os testes
-/opt/conda/envs/seazone/bin/python python manage.py test
+/opt/conda/envs/seazone/bin/python manage.py test
 ```
