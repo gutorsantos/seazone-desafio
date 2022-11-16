@@ -9,6 +9,8 @@ services:
       - "5432:5432"
     networks:
       - khantonetwork
+    volumes:
+       - ./data:/var/lib/postgresql/data
   djangoservice:
     container_name: django
     build: 
