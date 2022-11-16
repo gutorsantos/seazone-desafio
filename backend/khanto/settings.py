@@ -80,8 +80,11 @@ WSGI_APPLICATION = "khanto.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'OPTIONS': {
+            'options': '-c search_path=khanto_schema,public'
+        },
         'NAME': 'khantodb',
-        'USER': 'psql',
+        'USER': 'khanto_user',
         'PASSWORD': 'Abcd123*',
         'HOST': 'localhost',
         'PORT': '5432',

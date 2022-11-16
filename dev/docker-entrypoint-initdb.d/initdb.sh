@@ -3,7 +3,7 @@
 # Interrompa imediatamente se algum comando der erro:
 set -e
 
-psql -v ON_ERROR_STOP=1 --username '${POSTGRES_USER}' --dbname '${POSTGRES_DB}' <<-EOSQL
+psql -v ON_ERROR_STOP=1 --username ${POSTGRES_USER} --dbname ${POSTGRES_DB} <<-EOSQL
     -- Cria o usuário
     CREATE USER ${KHANTO_USER};
     -- Define a senha

@@ -11,7 +11,7 @@ No documento do desafio não foi solicidato, porém, foi utilizado o docker para
 
 ### 1. Preparando o ambiente
 
-Primeiramente, devemos instalar na máquina algum gerenciador de pacote do python (o utilizado por mim foi o miniconda). Além disso, deve-se instalar, também, o PostgreSQL.
+Primeiramente, devemos instalar na máquina algum gerenciador de pacote do python (o utilizado por mim foi o miniconda). Além disso, deve-se instalar, também, o **PostgreSQL 15**.
 ###### OBS: Não está no presente escopo, mostrar a instalação de um gerenciador de pacote nem do postgresql
 
 Com o gerenciador instalado e configurado, podemos agora instalar as dependências necessárias para nossa aplicação. Pelo terminal, executamos:
@@ -30,32 +30,33 @@ Devemos configurar algumas coisas dentro do PostgreSQL para que o Django funcion
 
 Para isso, entre dentro do CLI do Postgre, no terminal:
 ``` sh
-psql -U psql
+psql -h localhost -U postgres
 ```
 
 Agora dentro da linha de comando do psql, rodamos os seguintes comandos:
 
 ```sql
+-- Cria o Banco de Dados
+CREATE DATABASE khantodb;
+
 -- Criamos um usário
 CREATE USER khanto_user;
 
 -- Definimos usa senha para ele
 ALTER USER khanto_user WITH PASSWORD 'Abcd123*';
 
+\connect khantodb;
+CREATE SCHEMA khanto_schema AUTHORIZATION khanto_user;
+
 -- Define a codificação utilizada no tráfego com o cliente
 ALTER ROLE khanto_user SET client_encoding TO 'utf8';
 
 -- https://www.postgresql.org/docs/12/transaction-iso.html
-ALTER ROLE ${KHANTO_USER} SET default_transaction_isolation TO 'read committed';
+ALTER ROLE khanto_user SET default_transaction_isolation TO 'read committed';
 
 -- Utilizar horário UTC ao invés do horário brasileiro
 ALTER ROLE khanto_user SET timezone TO 'UTC';
 
--- Cria o Banco de Dados
-CREATE DATABASE khantodb;
-
--- Dá privilégios no banco para o usuário do sistema
-GRANT ALL PRIVILEGES ON DATABASE khantodb TO khanto_user;
 ```
 
 Esses comandos servem para realizar a conexão do Django com o banco de dados
@@ -69,6 +70,9 @@ Com os parâmetros criados no passo anterior, realizamos agora a conexão com o 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'OPTIONS': {
+            'options': '-c search_path=khanto_schema,public'
+        },
         'NAME': 'khantodb',
         'USER': 'khanto_user',
         'PASSWORD': 'Abcd123*',
@@ -88,7 +92,7 @@ Com a conexão estabelecida, podemos agora fazer as migrações para o banco e c
 python manage.py migrate
 
 # Realizar a importação dos dados
-python manage.py loaddata
+python manage.py loaddata khanto/fixtures/data.json 
 ```
 
 ### 4. Executando a aplicação
@@ -126,6 +130,9 @@ Deve-se alterar **somente** o parâmetro HOST de 'localhost' para 'db'.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'OPTIONS': {
+            'options': '-c search_path=khanto_schema,public'
+        },
         'NAME': 'khantodb',
         'USER': 'khanto_user',
         'PASSWORD': 'Abcd123*',
@@ -161,14 +168,15 @@ docker exec -it django bash
 /opt/conda/envs/seazone/bin/python manage.py migrate
 
 # Realizar a importação dos dados
-/opt/conda/envs/seazone/bin/python manage.py loaddata
+/opt/conda/envs/seazone/bin/python manage.py loaddata khanto/fixtures/data.json 
 
 ```
 
-Após os passos anteriores, o Django deverá estar pronto para ser executado.
+Agora reiniciamos os contêineres:
 
 ```
-python manage.py runserver
+docker-compose down
+docker-compose up
 ```
 
 Para verificar que tudo está correto, acesse http://localhost:8000/api/. Deverá aparecer uma lista com os 3 endpoints.
