@@ -218,12 +218,12 @@
     "model": "reservas.reserva",
     "pk": 7,
     "fields": {
-        "anuncio_id": 3,
+        "anuncio_id": 4,
         "checkin": "2022-12-15T19:25:00Z",
-        "checkout": "2022-12-30T19:25:00Z",
-        "total": "2000.00",
+        "checkout": "2022-12-25T19:25:00Z",
+        "total": "500.00",
         "comentario": "Observações sobre a reserva",
-        "hospedes": 10,
+        "hospedes": 3,
         "criacao": "2022-11-15T22:39:21.285Z",
         "atualizacao": "2022-11-15T22:39:21.285Z"
     }
@@ -232,126 +232,14 @@
     "model": "reservas.reserva",
     "pk": 8,
     "fields": {
-        "anuncio_id": 3,
-        "checkin": "2022-12-15T19:25:00Z",
-        "checkout": "2022-12-30T19:25:00Z",
-        "total": "2000.00",
+        "anuncio_id": 1,
+        "checkin": "2022-11-20T19:25:00Z",
+        "checkout": "2022-11-23T19:25:00Z",
+        "total": "350.00",
         "comentario": "Observações sobre a reserva",
-        "hospedes": 10,
+        "hospedes": 1,
         "criacao": "2022-11-15T22:39:48.721Z",
         "atualizacao": "2022-11-15T22:39:48.721Z"
-    }
-},
-{
-    "model": "reservas.reserva",
-    "pk": 9,
-    "fields": {
-        "anuncio_id": 3,
-        "checkin": "2022-12-15T19:25:00Z",
-        "checkout": "2022-12-30T19:25:00Z",
-        "total": "2000.00",
-        "comentario": "Observações sobre a reserva",
-        "hospedes": 10,
-        "criacao": "2022-11-15T22:39:59.059Z",
-        "atualizacao": "2022-11-15T22:39:59.059Z"
-    }
-},
-{
-    "model": "reservas.reserva",
-    "pk": 10,
-    "fields": {
-        "anuncio_id": 3,
-        "checkin": "2022-12-15T19:25:00Z",
-        "checkout": "2022-12-30T19:25:00Z",
-        "total": "2000.00",
-        "comentario": "Observações sobre a reserva",
-        "hospedes": 10,
-        "criacao": "2022-11-15T22:40:35.103Z",
-        "atualizacao": "2022-11-15T22:40:35.103Z"
-    }
-},
-{
-    "model": "reservas.reserva",
-    "pk": 11,
-    "fields": {
-        "anuncio_id": 3,
-        "checkin": "2022-12-15T19:25:00Z",
-        "checkout": "2022-12-30T19:25:00Z",
-        "total": "2000.00",
-        "comentario": "Observações sobre a reserva",
-        "hospedes": 10,
-        "criacao": "2022-11-15T22:41:08.675Z",
-        "atualizacao": "2022-11-15T22:41:08.675Z"
-    }
-},
-{
-    "model": "reservas.reserva",
-    "pk": 12,
-    "fields": {
-        "anuncio_id": 3,
-        "checkin": "2022-12-15T19:25:00Z",
-        "checkout": "2022-12-30T19:25:00Z",
-        "total": "2000.00",
-        "comentario": "Observações sobre a reserva",
-        "hospedes": 10,
-        "criacao": "2022-11-15T22:41:12.505Z",
-        "atualizacao": "2022-11-15T22:41:12.505Z"
-    }
-},
-{
-    "model": "reservas.reserva",
-    "pk": 13,
-    "fields": {
-        "anuncio_id": 2,
-        "checkin": "2022-11-01T19:44:00Z",
-        "checkout": "2022-11-11T19:44:00Z",
-        "total": "565.00",
-        "comentario": "Teste",
-        "hospedes": 78,
-        "criacao": "2022-11-15T22:50:35.781Z",
-        "atualizacao": "2022-11-15T22:50:35.781Z"
-    }
-},
-{
-    "model": "reservas.reserva",
-    "pk": 14,
-    "fields": {
-        "anuncio_id": 2,
-        "checkin": "2022-11-01T19:44:00Z",
-        "checkout": "2022-11-11T19:44:00Z",
-        "total": "565.00",
-        "comentario": "Teste",
-        "hospedes": 78,
-        "criacao": "2022-11-15T22:50:52.107Z",
-        "atualizacao": "2022-11-15T22:50:52.107Z"
-    }
-},
-{
-    "model": "reservas.reserva",
-    "pk": 15,
-    "fields": {
-        "anuncio_id": 2,
-        "checkin": "2022-11-01T19:44:00Z",
-        "checkout": "2022-11-11T19:44:00Z",
-        "total": "565.00",
-        "comentario": "Teste",
-        "hospedes": 78,
-        "criacao": "2022-11-15T22:50:56.203Z",
-        "atualizacao": "2022-11-15T22:50:56.203Z"
-    }
-},
-{
-    "model": "reservas.reserva",
-    "pk": 16,
-    "fields": {
-        "anuncio_id": 2,
-        "checkin": "2022-11-01T19:44:00Z",
-        "checkout": "2022-11-11T19:44:00Z",
-        "total": "565.00",
-        "comentario": "Teste",
-        "hospedes": 78,
-        "criacao": "2022-11-15T22:51:17.197Z",
-        "atualizacao": "2022-11-15T22:51:17.197Z"
     }
 }
 ]
