@@ -119,7 +119,7 @@ Como o repositório está com parâmetros para a execução do modo normal.
 
 É **necessariamente obrigatório** mudar a configuração da conexão com o banco no settings.py. 
 
-Deve-se alterar **somente** o parâmetro HOST para 'db'.
+Deve-se alterar **somente** o parâmetro HOST de 'localhost' para 'db'.
 
 ```py
 # settings.py
