@@ -78,6 +78,9 @@ DATABASES = {
         'PASSWORD': 'Abcd123*',
         'HOST': 'localhost',
         'PORT': '5432',
+        'TEST': {
+            'NAME': 'teste_khanto',
+        },
     }
 }
 ```
@@ -138,6 +141,9 @@ DATABASES = {
         'PASSWORD': 'Abcd123*',
         'HOST': 'db',
         'PORT': '5432',
+        'TEST': {
+            'NAME': 'teste_khanto',
+        },
     }
 }
 ```
